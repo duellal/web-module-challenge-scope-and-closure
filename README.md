@@ -61,7 +61,7 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences). 
-    - Closure is the ability to access functions/variables from a parent scope when you are in a child scope - you are "reaching" into the parent scope to get what you need for the child scope. This is useful when you want to use a variable or function in both scopes. This access to get the function/variable from a parent scope is still viable even after the parent scope has been terminated. Closure is the ability to pass things down to a child scope but you cannot pass things back up to the parent scope - kind of like in genetics. 
+    - Closure is the ability to access functions from a parent scope when you are in a child scope - you are "reaching" into the parent scope to get what you need for the child scope. This is useful when you want to use a function in both scopes. This access to get the function from a parent scope is still viable even after the parent scope has been terminated. Closure is the ability to pass things down to a child scope but you cannot pass things back up to the parent scope - kind of like in genetics. 
 
 2. Study the following code, then answer the questions below.
 
