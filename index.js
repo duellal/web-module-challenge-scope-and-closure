@@ -34,7 +34,8 @@ console.log('example task:', processFirstItem(['foo','bar'],function(str){return
   2. Which of the two uses a closure? How can you tell?
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
+     counter2 be better?  Think about: Where you can access count and why you may want to access it on the gloabl scope vs. why you wouldn't want to access it on the global scope.
+
 */
 
 // counter1 code
@@ -57,7 +58,7 @@ function counter2() {
 
 /* ⚾️⚾️⚾️ Task 2: inning() ⚾️⚾️⚾️
 Use the inning function below to do the following:
-  1. Return a random whole number of points between 0 and 2 scored by one team in an inning
+  1. Return a random whole number of points between 0 and 2 scored by one team in an inning.
   
   For example: invoking inning() should return a numerical score value of 0, 1, or 2
   
@@ -72,7 +73,7 @@ function inning(/*Code Here*/){
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
   1. Receive the callback function `inning` that was created in Task 2 in the first parameter
-  2. Receive a number of innings to be played in the second parameter
+  2. Receive a number of innings (9) to be played in the second parameter
   3. After each inning, update the score of the home and away teams
   4. After the last inning, return an object containing the final (total) score of the innings played
   
