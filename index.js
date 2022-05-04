@@ -30,12 +30,14 @@ console.log('example task:', processFirstItem(['foo','bar'],function(str){return
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+      - counter1 has a closure and counter2 does not. counter1 creates the variable count within the parent function and then incriments the count up by one in the child function. Whereas counter2 calls the variable outside of the function, and then incriments the count up by one within the function. 
   
   2. Which of the two uses a closure? How can you tell?
+      - counter1 uses a closure because there is a function within another function.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  Think about: Where you can access count and why you may want to access it on the gloabl scope vs. why you wouldn't want to access it on the global scope.
-
+      - counter1 would be better if you do not need to use the count variable globally within your code or if you want to only change it within this function. counter2 would be better if you want to use the count variable in multiple ways or need to access it later in your code. 
 */
 
 // counter1 code
@@ -65,8 +67,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+
 }
 
 
