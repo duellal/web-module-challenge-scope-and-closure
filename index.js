@@ -68,8 +68,11 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning(){
-
+  const randScore = Math.floor(Math.random() * 3)
+  return randScore
 }
+
+console.log(inning())
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -86,10 +89,60 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*Code Here*/){
-  /*Code Here*/
+// function finalScore(inningCB, numInnings){
+//   let gameScore = {
+//     Home: inning(),
+//     Away: inning()
+//   }
+
+//   let homeScore = 0;
+//   let awayScore = 0;
+  
+//   for(let i = 0; i < numInnings; i++){
+//     const currentScore = inningCB
+//     homeScore = homeScore + currentScore.Home;
+//     awayScore = awayScore + currentScore.Away;
+//     // score.push(`Inning ${i+1}: Home: ${currentScore.Home} - Away: ${currentScore.Away}; Overall Score: Home: ${homeScore} - Away: ${awayScore}`)
+//   }
+//   // return score
+//   // function endScore(){
+//   //   for(let key of Object.keys(gameScore)){
+//   //     if(key === 'Home'){
+//   //       gameScore[key] = homeScore
+//   //     } else{gameScore[key] = awayScore}
+//   //   }
+//     return gameScore
+//   // }
+// }
+
+console.log(finalScore(inning, 9))
+
+function baseballGame(inningCB){
+  const score = {
+    Home: inning(),
+    Away: inning()
+  };
 }
 
+
+function finalScore(inningCB, gameCB, numInnings){
+  const gameScore = []
+  let homeScore = 0
+  let awayScore = 0
+
+  for(let i = 0; i < numInnings; i++){
+    const currentScore = gameCB(inningCB)
+    homeScore = homeScore + currentScore.Home;
+    awayScore = awayScore + currentScore.Away;
+
+    gameScore.push(`Inning ${i + 1}: 
+    Home: ${currentScore.Home} - Away: ${currentScore.Away};  Overall Score: 
+    Home: ${homeScore} - Away: ${awayScore}`)
+  }
+return gameScore
+}
+
+console.log(finalScore(inning, baseballGame, 9))
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
@@ -104,11 +157,14 @@ For example: invoking getInningScore(inning) might return this object:
   */
 
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
-
+function getInningScore(inningCB) {
+  return {
+    Home: inning(), 
+    Away: inning()
+  }
 }
 
+console.log(getInningScore(inning))
 
 /* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
