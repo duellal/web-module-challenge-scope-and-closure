@@ -72,7 +72,7 @@ function inning(){
   return randScore
 }
 
-console.log(inning())
+console.log("Random Score:", inning())
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -89,38 +89,10 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-// function finalScore(inningCB, numInnings){
-//   let gameScore = {
-//     Home: inning(),
-//     Away: inning()
-//   }
-
-//   let homeScore = 0;
-//   let awayScore = 0;
-  
-//   for(let i = 0; i < numInnings; i++){
-//     const currentScore = inningCB
-//     homeScore = homeScore + currentScore.Home;
-//     awayScore = awayScore + currentScore.Away;
-//     // score.push(`Inning ${i+1}: Home: ${currentScore.Home} - Away: ${currentScore.Away}; Overall Score: Home: ${homeScore} - Away: ${awayScore}`)
-//   }
-//   // return score
-//   // function endScore(){
-//   //   for(let key of Object.keys(gameScore)){
-//   //     if(key === 'Home'){
-//   //       gameScore[key] = homeScore
-//   //     } else{gameScore[key] = awayScore}
-//   //   }
-//     return gameScore
-//   // }
-// }
-
-console.log(finalScore(inning, 9))
-
 function baseballGame(inningCB){
-  const score = {
-    Home: inning(),
-    Away: inning()
+  return {
+    Home: inningCB(),
+    Away: inningCB()
   };
 }
 
@@ -134,15 +106,13 @@ function finalScore(inningCB, gameCB, numInnings){
     const currentScore = gameCB(inningCB)
     homeScore = homeScore + currentScore.Home;
     awayScore = awayScore + currentScore.Away;
-
-    gameScore.push(`Inning ${i + 1}: 
-    Home: ${currentScore.Home} - Away: ${currentScore.Away};  Overall Score: 
-    Home: ${homeScore} - Away: ${awayScore}`)
   }
-return gameScore
+
+  return {Home: homeScore, Away: awayScore}
 }
 
-console.log(finalScore(inning, baseballGame, 9))
+console.log('Final Score:', finalScore(inning, baseballGame, 9))
+
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
@@ -159,12 +129,12 @@ For example: invoking getInningScore(inning) might return this object:
 
 function getInningScore(inningCB) {
   return {
-    Home: inning(), 
-    Away: inning()
+    Home: inningCB(), 
+    Away: inningCB()
   }
 }
 
-console.log(getInningScore(inning))
+console.log("1 Inning Score:", getInningScore(inning))
 
 /* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
@@ -206,11 +176,28 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ] */
 // NOTE: There is no test associated with this code; if your output matches the given example, consider it complete!
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore, inning, numInnings) {
+  const gameScore = []
+  let homeScore = 0
+  let awayScore = 0
+
+  for(let i = 0; i < numInnings; i++){
+    const currentScore = getInningScore(inning)
+    homeScore = homeScore + currentScore.Home;
+    awayScore = awayScore + currentScore.Away;
+
+    gameScore.push(`Inning ${i + 1}: Home: ${currentScore.Home} - Away: ${currentScore.Away}`)
+
+    let finalScoreH = homeScore
+    let finalScoreA = awayScore
+
+    gameScore.push(``) //NEED TO FINISH THIS PART
+  }
+
+  return gameScore
 }
 
-
+console.log('Scoreboard:', scoreboard(getInningScore, inning, 9))
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
@@ -225,7 +212,7 @@ module.exports = {
   counter1,
   counter2,
   inning,
-  finalScore,
+ // finalScore,
   getInningScore,
   scoreboard,
 }
