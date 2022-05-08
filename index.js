@@ -89,29 +89,49 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function baseballGame(inningCB){
-  return {
-    Home: inningCB(),
-    Away: inningCB()
-  };
-}
+function finalScore(inningCB, numInnings){
+  let gameCB = {Home: inningCB(), Away: inningCB(),
+  }
 
-
-function finalScore(inningCB, gameCB, numInnings){
-  const gameScore = []
   let homeScore = 0
   let awayScore = 0
 
-  for(let i = 0; i < numInnings; i++){
-    const currentScore = gameCB(inningCB)
-    homeScore = homeScore + currentScore.Home;
-    awayScore = awayScore + currentScore.Away;
+  for(let i=0; i < numInnings; i++){
+    const currentScore = gameCB
+    homeScore = homeScore + currentScore.Home
+    awayScore = awayScore + currentScore.Away
   }
 
-  return {Home: homeScore, Away: awayScore}
+return {Home: homeScore, Away: awayScore}
 }
 
-console.log('Final Score:', finalScore(inning, baseballGame, 9))
+console.log('Final Score:', finalScore(inning, 9))
+
+////Below is a second way to get the same result with finding the Final Score in a function
+
+// function baseballGame(inningCB){
+//   return {
+//     Home: inningCB(),
+//     Away: inningCB()
+//   };
+// }
+
+
+// function finalScore(inningCB, gameCB, numInnings){
+//   const gameScore = []
+//   let homeScore = 0
+//   let awayScore = 0
+
+//   for(let i = 0; i < numInnings; i++){
+//     const currentScore = gameCB(inningCB)
+//     homeScore = homeScore + currentScore.Home;
+//     awayScore = awayScore + currentScore.Away;
+//   }
+
+//   return {Home: homeScore, Away: awayScore,}
+// }
+
+// console.log('Final Score:', finalScore(inning, baseballGame, 9))
 
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -187,12 +207,9 @@ function scoreboard(getInningScore, inning, numInnings) {
     awayScore = awayScore + currentScore.Away;
 
     gameScore.push(`Inning ${i + 1}: Home: ${currentScore.Home} - Away: ${currentScore.Away}`)
-
-    let finalScoreH = homeScore
-    let finalScoreA = awayScore
-
-    gameScore.push(``) //NEED TO FINISH THIS PART
   }
+
+  if(homeScore === awayScore){gameScore.push(`This game will require extra innings: Home: ${homeScore} - Away: ${awayScore}`)} else{gameScore.push(`Final Score: Home: ${homeScore} - Away: ${awayScore}`)} 
 
   return gameScore
 }
