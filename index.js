@@ -107,7 +107,7 @@ return {Home: homeScore, Away: awayScore}
 
 console.log('Final Score:', finalScore(inning, 9))
 
-////Below is a second way to get the same result with finding the Final Score in a function
+// //Below is a second way to get the same result with finding the Final Score in a function
 
 // function baseballGame(inningCB){
 //   return {
@@ -229,7 +229,7 @@ module.exports = {
   counter1,
   counter2,
   inning,
- // finalScore,
+  finalScore,
   getInningScore,
   scoreboard,
 }
